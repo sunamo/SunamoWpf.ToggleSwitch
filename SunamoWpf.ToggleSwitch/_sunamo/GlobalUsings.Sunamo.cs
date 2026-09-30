@@ -1,5 +1,5 @@
-﻿global using Microsoft.Win32;
-global using SunamoWpf._sunamo;
+global using Microsoft.Win32;
+global using SunamoWpf.ToggleSwitch._sunamo;
 global using System.Collections;
 global using System.Collections.ObjectModel;
 global using System.Globalization;

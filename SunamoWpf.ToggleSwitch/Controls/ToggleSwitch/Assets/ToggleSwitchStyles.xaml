@@ -5,7 +5,7 @@
      xmlns:ToggleSwitch="clr-namespace:SunamoWpf.Controls.ToggleSwitch" 
      xmlns:Utils="clr-namespace:SunamoWpf.Controls.ToggleSwitch.Utils"
      xmlns:Controls="clr-namespace:SunamoWpf.Controls.ToggleSwitch" 
-     xmlns:DemoUtils="clr-namespace:SunamoWpf.ValueConverters">
+     xmlns:DemoUtils="clr-namespace:SunamoWpf.ToggleSwitch._sunamo">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../WPF/Themes/GenericDictionary.xaml" />
