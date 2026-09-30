@@ -27,7 +27,5 @@
     <PackageReleaseNotes>y</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SunamoWpf.Converters\SunamoWpf.Converters\SunamoWpf.Converters.csproj" />
-    <ProjectReference Include="..\..\SunamoWpf.Core\SunamoWpf.Core\SunamoWpf.Core.csproj" />
   </ItemGroup>
 </Project>
