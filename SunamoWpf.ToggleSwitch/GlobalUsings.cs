@@ -1,6 +1,4 @@
-global using SunamoWpf._public;
-global using SunamoWpf._sunamo;
-global using SunamoWpf.Controls.ToggleSwitch;
+﻿global using SunamoWpf.Controls.ToggleSwitch;
 global using SunamoWpf.Controls.ToggleSwitch.Borders;
 global using SunamoWpf.Controls.ToggleSwitch.Utils;
 global using SunamoWpf;
