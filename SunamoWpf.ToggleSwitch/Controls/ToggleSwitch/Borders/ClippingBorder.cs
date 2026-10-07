@@ -245,12 +245,12 @@ namespace SunamoWpf.Controls.ToggleSwitch.Borders;
 		/// Updates the clips.
 		/// </summary>
 		/// <param name="sender">The clipping border</param>
-		/// <param name="e">Size Changed Event Args.</param>
-		private void ClippingBorderSizeChanged(object sender, SizeChangedEventArgs e)
+		/// <param name="eventArgs">Size Changed Event Args.</param>
+		private void ClippingBorderSizeChanged(object sender, SizeChangedEventArgs eventArgs)
 		{
 			if (ClipContent)
 			{
-				UpdateClipSize(e.NewSize);
+				UpdateClipSize(eventArgs.NewSize);
 			}
 		}
 
@@ -258,8 +258,8 @@ namespace SunamoWpf.Controls.ToggleSwitch.Borders;
 		/// Updates the clip size.
 		/// </summary>
 		/// <param name="sender">A content control.</param>
-		/// <param name="e">Size Changed Event Args</param>
-		private void ContentControlSizeChanged(object sender, SizeChangedEventArgs e)
+		/// <param name="eventArgs">Size Changed Event Args</param>
+		private void ContentControlSizeChanged(object sender, SizeChangedEventArgs eventArgs)
 		{
 			if (ClipContent)
 			{

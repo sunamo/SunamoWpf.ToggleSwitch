@@ -26,12 +26,12 @@ namespace SunamoWpf.Controls.ToggleSwitch;
 			get { return new PropertyPath("(Canvas.Top)"); }
 		}
 
-		protected override void OnDragDelta(object sender, DragDeltaEventArgs e)
+		protected override void OnDragDelta(object sender, DragDeltaEventArgs eventArgs)
 		{
 #if SILVERLIGHT
 			DragOffset += e.VerticalChange * ZoomFactor;
 #else
-			DragOffset += e.VerticalChange;
+			DragOffset += eventArgs.VerticalChange;
 #endif
 			Offset = Math.Min(UncheckedOffset, Math.Max(CheckedOffset, DragOffset));
 		}
@@ -62,7 +62,7 @@ namespace SunamoWpf.Controls.ToggleSwitch;
 			}
 		}
 
-		protected override void OnDragCompleted(object sender, DragCompletedEventArgs e)
+		protected override void OnDragCompleted(object sender, DragCompletedEventArgs eventArgs)
 		{
 			IsDragging = false;
 			bool click = false;
