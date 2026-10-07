@@ -10,11 +10,11 @@ namespace SunamoWpf.Controls.ToggleSwitch.Utils;
 			DependencyProperty.Register("Element", typeof(FrameworkElement), typeof(ActualSizePropertyProxy),
 										new PropertyMetadata(null, OnElementPropertyChanged));
 
-		private static void OnElementPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+		private static void OnElementPropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
 		{
-        if (d != null)
+        if (dependencyObject != null)
         {
-            ((ActualSizePropertyProxy)d).OnElementChanged(e);
+            ((ActualSizePropertyProxy)dependencyObject).OnElementChanged(eventArgs);
         }
 		}
 
@@ -36,10 +36,10 @@ namespace SunamoWpf.Controls.ToggleSwitch.Utils;
 			get { return Element == null ? 0 : Element.ActualWidth; }
 		}
 
-		private void OnElementChanged(DependencyPropertyChangedEventArgs e)
+		private void OnElementChanged(DependencyPropertyChangedEventArgs eventArgs)
 		{
-			var oldElement = (FrameworkElement)e.OldValue;
-			var newElement = (FrameworkElement)e.NewValue;
+			var oldElement = (FrameworkElement)eventArgs.OldValue;
+			var newElement = (FrameworkElement)eventArgs.NewValue;
 
 			if (oldElement != null)
 			{
@@ -54,7 +54,7 @@ namespace SunamoWpf.Controls.ToggleSwitch.Utils;
 			NotifyPropertyChanged();
 		}
 
-		private void ElementSizeChanged(object sender, SizeChangedEventArgs e)
+		private void ElementSizeChanged(object sender, SizeChangedEventArgs eventArgs)
 		{
 			NotifyPropertyChanged();
 		}

@@ -377,12 +377,12 @@ public abstract class ToggleSwitchBase : Control
         set { SetValue(IsCheckedProperty, value); }
     }
     public static string DraggingState1 => DraggingState;
-    private static void OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    private static void OnIsCheckedChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
     {
-        var control = (ToggleSwitchBase)d;
-        if (e.NewValue != e.OldValue)
+        var control = (ToggleSwitchBase)dependencyObject;
+        if (eventArgs.NewValue != eventArgs.OldValue)
         {
-            if ((bool)e.NewValue)
+            if ((bool)eventArgs.NewValue)
             {
                 control.InvokeChecked(new RoutedEventArgs());
             }
@@ -419,24 +419,24 @@ public abstract class ToggleSwitchBase : Control
     /// Event raised when the toggle switch is unchecked.
     ///</summary>
     public event RoutedEventHandler Unchecked;
-    protected void InvokeUnchecked(RoutedEventArgs e)
+    protected void InvokeUnchecked(RoutedEventArgs eventArgs)
     {
         RoutedEventHandler handler = Unchecked;
         if (handler != null)
         {
-            handler(this, e);
+            handler(this, eventArgs);
         }
     }
     ///<summary>
     /// Event raised when the toggle switch is checked.
     ///</summary>
     public event RoutedEventHandler Checked;
-    protected void InvokeChecked(RoutedEventArgs e)
+    protected void InvokeChecked(RoutedEventArgs eventArgs)
     {
         RoutedEventHandler handler = Checked;
         if (handler != null)
         {
-            handler(this, e);
+            handler(this, eventArgs);
         }
     }
     #endregion
@@ -452,14 +452,14 @@ public abstract class ToggleSwitchBase : Control
     /// Raised while dragging the <see cref="Thumb">Thumb</see>.
     /// </summary>
     /// <param name="sender"></param>
-    /// <param name="e"></param>
-    protected abstract void OnDragDelta(object sender, DragDeltaEventArgs e);
+    /// <param name="eventArgs"></param>
+    protected abstract void OnDragDelta(object sender, DragDeltaEventArgs eventArgs);
     /// <summary>
     /// Raised when the dragging of the <see cref="Thumb">Thumb</see> has completed.
     /// </summary>
     /// <param name="sender"></param>
-    /// <param name="e"></param>
-    protected abstract void OnDragCompleted(object sender, DragCompletedEventArgs e);
+    /// <param name="eventArgs"></param>
+    protected abstract void OnDragCompleted(object sender, DragCompletedEventArgs eventArgs);
     /// <summary>
     /// Recalculated the layout of the control.
     /// </summary>
@@ -515,8 +515,8 @@ public abstract class ToggleSwitchBase : Control
     /// Raised when a drag has started on the <see cref="Thumb">Thumb</see>.
     /// </summary>
     /// <param name="sender"></param>
-    /// <param name="e"></param>
-    protected virtual void OnDragStarted(object sender, DragStartedEventArgs e)
+    /// <param name="eventArgs"></param>
+    protected virtual void OnDragStarted(object sender, DragStartedEventArgs eventArgs)
     {
         IsDragging = true;
         DragOffset = Offset;
@@ -540,8 +540,8 @@ public abstract class ToggleSwitchBase : Control
     /// Raised when the size of the control has changed.
     /// </summary>
     /// <param name="sender"></param>
-    /// <param name="e"></param>
-    protected virtual void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    /// <param name="eventArgs"></param>
+    protected virtual void OnSizeChanged(object sender, SizeChangedEventArgs eventArgs)
     {
         LayoutControls();
     }
@@ -566,21 +566,21 @@ public abstract class ToggleSwitchBase : Control
     /// <summary>
     /// Raised when a dependency property that affects the control's layout has changed.
     /// </summary>
-    /// <param name="d">The ToggleSwitch control</param>
-    /// <param name="e"></param>
-    private static void OnLayoutDependancyPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    /// <param name="dependencyObject">The ToggleSwitch control</param>
+    /// <param name="eventArgs"></param>
+    private static void OnLayoutDependancyPropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
     {
-        if (e.NewValue != e.OldValue)
+        if (eventArgs.NewValue != eventArgs.OldValue)
         {
-            ((ToggleSwitchBase)d).LayoutControls();
+            ((ToggleSwitchBase)dependencyObject).LayoutControls();
         }
     }
     /// <summary>
     /// Called when the IsEnabled property changes.
     /// </summary>
     /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void OnIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+    /// <param name="eventArgs"></param>
+    private void OnIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs eventArgs)
     {
         _suspendStateChanges = true;
         if (!IsEnabled)
@@ -611,10 +611,10 @@ public abstract class ToggleSwitchBase : Control
     /// <summary> 
     /// Responds to the LostFocus event.
     /// </summary> 
-    /// <param name="e">The event data for the LostFocus event.</param>
-    protected override void OnLostFocus(RoutedEventArgs e)
+    /// <param name="eventArgs">The event data for the LostFocus event.</param>
+    protected override void OnLostFocus(RoutedEventArgs eventArgs)
     {
-        base.OnLostFocus(e);
+        base.OnLostFocus(eventArgs);
 #if SILVERLIGHT
 			IsFocused = false;
 #endif
@@ -627,17 +627,17 @@ public abstract class ToggleSwitchBase : Control
     /// <summary> 
     /// Responds to the KeyDown event.
     /// </summary> 
-    /// <param name="e">The event data for the KeyDown event.</param>
-    protected override void OnKeyDown(KeyEventArgs e)
+    /// <param name="eventArgs">The event data for the KeyDown event.</param>
+    protected override void OnKeyDown(KeyEventArgs eventArgs)
     {
-        base.OnKeyDown(e);
-        if (e.Handled)
+        base.OnKeyDown(eventArgs);
+        if (eventArgs.Handled)
         {
             return;
         }
-        if (OnKeyDownInternal(e.Key))
+        if (OnKeyDownInternal(eventArgs.Key))
         {
-            e.Handled = true;
+            eventArgs.Handled = true;
         }
     }
     /// <summary> 
@@ -686,17 +686,17 @@ public abstract class ToggleSwitchBase : Control
     /// <summary> 
     /// Responds to the KeyUp event. 
     /// </summary>
-    /// <param name="e">The event data for the KeyUp event.</param> 
-    protected override void OnKeyUp(KeyEventArgs e)
+    /// <param name="eventArgs">The event data for the KeyUp event.</param> 
+    protected override void OnKeyUp(KeyEventArgs eventArgs)
     {
-        base.OnKeyUp(e);
-        if (e.Handled)
+        base.OnKeyUp(eventArgs);
+        if (eventArgs.Handled)
         {
             return;
         }
-        if (OnKeyUpInternal(e.Key))
+        if (OnKeyUpInternal(eventArgs.Key))
         {
-            e.Handled = true;
+            eventArgs.Handled = true;
         }
     }
     /// <summary> 
@@ -763,13 +763,13 @@ public abstract class ToggleSwitchBase : Control
     /// <summary> 
     /// Responds to the MouseLeftButtonDown event.
     /// </summary>
-    /// <param name="e"> 
+    /// <param name="eventArgs"> 
     /// The event data for the MouseLeftButtonDown event.
     /// </param>
-    protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+    protected override void OnMouseLeftButtonDown(MouseButtonEventArgs eventArgs)
     {
-        base.OnMouseLeftButtonDown(e);
-        if (e.Handled)
+        base.OnMouseLeftButtonDown(eventArgs);
+        if (eventArgs.Handled)
         {
             return;
         }
@@ -778,7 +778,7 @@ public abstract class ToggleSwitchBase : Control
         {
             return;
         }
-        e.Handled = true;
+        eventArgs.Handled = true;
         _suspendStateChanges = true;
         Focus();
         CaptureMouseInternal();
@@ -792,13 +792,13 @@ public abstract class ToggleSwitchBase : Control
     /// <summary> 
     /// Responds to the MouseLeftButtonUp event.
     /// </summary>
-    /// <param name="e"> 
+    /// <param name="eventArgs"> 
     /// The event data for the MouseLeftButtonUp event.
     /// </param>
-    protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
+    protected override void OnMouseLeftButtonUp(MouseButtonEventArgs eventArgs)
     {
-        base.OnMouseLeftButtonUp(e);
-        if (e.Handled)
+        base.OnMouseLeftButtonUp(eventArgs);
+        if (eventArgs.Handled)
         {
             return;
         }
@@ -807,7 +807,7 @@ public abstract class ToggleSwitchBase : Control
         {
             return;
         }
-        e.Handled = true;
+        eventArgs.Handled = true;
         if (!_isSpaceKeyDown && IsPressed)
         {
             OnClick();
@@ -821,11 +821,11 @@ public abstract class ToggleSwitchBase : Control
     /// <summary> 
     /// Responds to the MouseMove event.
     /// </summary> 
-    /// <param name="e">The event data for the MouseMove event.</param>
-    protected override void OnMouseMove(MouseEventArgs e)
+    /// <param name="eventArgs">The event data for the MouseMove event.</param>
+    protected override void OnMouseMove(MouseEventArgs eventArgs)
     {
-        base.OnMouseMove(e);
-        _mousePosition = e.GetPosition(this);
+        base.OnMouseMove(eventArgs);
+        _mousePosition = eventArgs.GetPosition(this);
         if (_isMouseLeftButtonDown &&
              IsEnabled &&
              _isMouseCaptured &&

@@ -237,10 +237,10 @@ public class OuterGlowBorder : ContentControl
     /// Updates the gradient stops on the drop shadow.
     /// </summary>
     /// <param name="sender">The outer glow border.</param>
-    /// <param name="e">Size changed event args.</param>
-    private void OuterGlowContentControlSizeChanged(object sender, SizeChangedEventArgs e)
+    /// <param name="eventArgs">Size changed event args.</param>
+    private void OuterGlowContentControlSizeChanged(object sender, SizeChangedEventArgs eventArgs)
     {
-        UpdateStops(e.NewSize);
+        UpdateStops(eventArgs.NewSize);
     }
     /// <summary>
     /// Updates the gradient stops.
