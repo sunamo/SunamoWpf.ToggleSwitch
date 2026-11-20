@@ -111,7 +111,7 @@ namespace SunamoWpf.Controls.ToggleSwitch.Borders;
 		/// <summary>
 		/// Gets or sets a value indicating whether the content is clipped.
 		/// </summary>
-		[Category(XlfKeys.Appearance), Description(XlfKeys.SetsWhetherTheContentIsClippedOrNot+ ".")]
+		[Category("Appearance"), Description("Sets whether the content is clipped or not"+ ".")]
 		public bool ClipContent
 		{
 			get
@@ -127,7 +127,7 @@ namespace SunamoWpf.Controls.ToggleSwitch.Borders;
 		/// <summary>
 		/// Gets or sets the content z-index. 0 for behind shadow, 1 for in-front.
 		/// </summary>
-		[Category(XlfKeys.Appearance), Description(XlfKeys.Set0ForBehindTheShadow1ForInFront+ ".")]
+		[Category("Appearance"), Description("Set 0 for behind the shadow 1 for in front"+ ".")]
 		public int ContentZIndex
 		{
 			get
@@ -143,7 +143,7 @@ namespace SunamoWpf.Controls.ToggleSwitch.Borders;
 		/// <summary>
 		/// Gets or sets the inner glow opacity.
 		/// </summary>
-		[Category(XlfKeys.Appearance), Description(XlfKeys.TheInnerGlowOpacity+ ".")]
+		[Category("Appearance"), Description("The inner glow opacity"+ ".")]
 		public double InnerGlowOpacity
 		{
 			get
@@ -159,7 +159,7 @@ namespace SunamoWpf.Controls.ToggleSwitch.Borders;
 		/// <summary>
 		/// Gets or sets the inner glow color.
 		/// </summary>
-		[Category(XlfKeys.Appearance), Description(XlfKeys.TheInnerGlowColor+ ".")]
+		[Category("Appearance"), Description("The inner glow color"+ ".")]
 		public Color InnerGlowColor
 		{
 			get
@@ -176,7 +176,7 @@ namespace SunamoWpf.Controls.ToggleSwitch.Borders;
 		/// <summary>
 		/// Gets or sets the inner glow size.
 		/// </summary>
-		[Category(XlfKeys.Appearance), Description(XlfKeys.TheInnerGlowSize+ ".")]
+		[Category("Appearance"), Description("The inner glow size"+ ".")]
 		public Thickness InnerGlowSize
 		{
 			get
@@ -195,7 +195,7 @@ namespace SunamoWpf.Controls.ToggleSwitch.Borders;
 		/// Gets or sets the border corner radius.
 		/// This is a thickness, as there is a problem parsing CornerRadius types.
 		/// </summary>
-		[Category(XlfKeys.Appearance), Description(XlfKeys.SetsTheCornerRadiusOnTheBorder+ ".")]
+		[Category("Appearance"), Description("Sets the corner radius on the border"+ ".")]
 		public CornerRadius CornerRadius
 		{
 			get

@@ -77,7 +77,7 @@ public class OuterGlowBorder : ContentControl
     /// <summary>
     /// Gets or sets a value indicating whether the content is clipped.
     /// </summary>
-    [Category(XlfKeys.Appearance), Description(XlfKeys.SetsWhetherTheContentIsClippedOrNot+ ".")]
+    [Category("Appearance"), Description("Sets whether the content is clipped or not"+ ".")]
     public bool ClipContent
     {
         get
@@ -92,7 +92,7 @@ public class OuterGlowBorder : ContentControl
     /// <summary>
     /// Gets or sets the outer glow opacity.
     /// </summary>
-    [Category(XlfKeys.Appearance), Description(XlfKeys.TheOuterGlowOpacity+ ".")]
+    [Category("Appearance"), Description("The outer glow opacity"+ ".")]
     public double OuterGlowOpacity
     {
         get
@@ -107,7 +107,7 @@ public class OuterGlowBorder : ContentControl
     /// <summary>
     /// Gets or sets the outer glow size.
     /// </summary>
-    [Category(XlfKeys.Appearance), Description(XlfKeys.TheOuterGlowSize+ ".")]
+    [Category("Appearance"), Description("The outer glow size"+ ".")]
     public double OuterGlowSize
     {
         get
@@ -124,7 +124,7 @@ public class OuterGlowBorder : ContentControl
     /// <summary>
     /// Gets or sets the outer glow color.
     /// </summary>
-    [Category(XlfKeys.Appearance), Description(XlfKeys.TheOuterGlowColor+ ".")]
+    [Category("Appearance"), Description("The outer glow color"+ ".")]
     public Color OuterGlowColor
     {
         get
@@ -140,7 +140,7 @@ public class OuterGlowBorder : ContentControl
     /// Gets or sets the border corner radius.
     /// This is a thickness, as there is a problem parsing CornerRadius types.
     /// </summary>
-    [Category(XlfKeys.Appearance), Description(XlfKeys.SetsTheCornerRadiusOnTheBorder+ ".")]
+    [Category("Appearance"), Description("Sets the corner radius on the border"+ ".")]
     public CornerRadius CornerRadius
     {
         get
@@ -158,7 +158,7 @@ public class OuterGlowBorder : ContentControl
     /// Gets or sets the border corner radius.
     /// This is a thickness, as there is a problem parsing CornerRadius types.
     /// </summary>
-    [Category(XlfKeys.Appearance), Description(XlfKeys.SetsTheCornerRadiusOnTheBorder+ ".")]
+    [Category("Appearance"), Description("Sets the corner radius on the border"+ ".")]
     public CornerRadius ShadowCornerRadius
     {
         get

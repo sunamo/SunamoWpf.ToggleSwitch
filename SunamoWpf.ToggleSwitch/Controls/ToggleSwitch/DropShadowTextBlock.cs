@@ -61,7 +61,7 @@ public class DropShadowTextBlock : Control
     /// <summary>
     /// Gets or sets the drop shadow color.
     /// </summary>
-    [Category(XlfKeys.Appearance), Description(XlfKeys.TheDropShadowColor+ ".")]
+    [Category("Appearance"), Description("The drop shadow color"+ ".")]
     public Color DropShadowColor
     {
         get
@@ -76,7 +76,7 @@ public class DropShadowTextBlock : Control
     /// <summary>
     /// Gets or sets the drop shadow opacity.
     /// </summary>
-    [Category(XlfKeys.Appearance), Description(XlfKeys.TheDropShadowOpacity+ ".")]
+    [Category("Appearance"), Description("The drop shadow opacity"+ ".")]
     public double DropShadowOpacity
     {
         get
@@ -91,7 +91,7 @@ public class DropShadowTextBlock : Control
     /// <summary>
     /// Gets or sets the link text.
     /// </summary>
-    [Category(XlfKeys.CommonProperties), Description(XlfKeys.TheTextContent+ ".")]
+    [Category("CommonProperties"), Description("TheTextContent"+ ".")]
     public string Text
     {
         get
@@ -106,7 +106,7 @@ public class DropShadowTextBlock : Control
     /// <summary>
     /// Gets or sets the text decorations.
     /// </summary>
-    [Category(XlfKeys.CommonProperties), Description(XlfKeys.TheTextDecorations+ ".")]
+    [Category("CommonProperties"), Description("TheTextDecorations"+ ".")]
     public TextDecorationCollection TextDecorations
     {
         get
@@ -121,7 +121,7 @@ public class DropShadowTextBlock : Control
     /// <summary>
     /// Gets or sets the text wrapping.
     /// </summary>
-    [Category(XlfKeys.CommonProperties), Description(XlfKeys.WhetherTheTextWraps+ ".")]
+    [Category("CommonProperties"), Description("Whether the text wraps"+ ".")]
     public TextWrapping TextWrapping
     {
         get
@@ -136,7 +136,7 @@ public class DropShadowTextBlock : Control
     /// <summary>
     /// Gets or sets the drop shadow distance.
     /// </summary>
-    [Category(XlfKeys.Appearance), Description(XlfKeys.TheDropShadowDistance+ ".")]
+    [Category("Appearance"), Description("The drop shadow distance"+ ".")]
     public double DropShadowDistance
     {
         get
@@ -151,7 +151,7 @@ public class DropShadowTextBlock : Control
     /// <summary>
     /// Gets or sets the drop shadow angle.
     /// </summary>
-    [Category(XlfKeys.Appearance), Description(XlfKeys.TheDropShadowAngle+ ".")]
+    [Category("Appearance"), Description("The drop shadow angle"+ ".")]
     public double DropShadowAngle
     {
         get
