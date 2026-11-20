@@ -1,12 +1,21 @@
 namespace SunamoWpf.Controls.ToggleSwitch;
 
+	/// <summary>
+	/// Represents the vertical toggle switch type.
+	/// </summary>
 	public class VerticalToggleSwitch : ToggleSwitchBase
 	{
+		/// <summary>
+		/// Initializes a new instance of the vertical toggle switch class.
+		/// </summary>
 		public VerticalToggleSwitch()
 		{
 			DefaultStyleKey = typeof(VerticalToggleSwitch);
 		}
 
+		/// <summary>
+		/// The offset.
+		/// </summary>
 		protected override double Offset
 		{
 			get { return Canvas.GetTop(SwitchThumb); }
@@ -21,11 +30,19 @@ namespace SunamoWpf.Controls.ToggleSwitch;
 			}
 		}
 
+		/// <summary>
+		/// The slide property path.
+		/// </summary>
 		protected override PropertyPath SlidePropertyPath
 		{
 			get { return new PropertyPath("(Canvas.Top)"); }
 		}
 
+		/// <summary>
+		/// On drag delta.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="eventArgs">The event args.</param>
 		protected override void OnDragDelta(object sender, DragDeltaEventArgs eventArgs)
 		{
 #if SILVERLIGHT
@@ -36,6 +53,9 @@ namespace SunamoWpf.Controls.ToggleSwitch;
 			Offset = Math.Min(UncheckedOffset, Math.Max(CheckedOffset, DragOffset));
 		}
 
+		/// <summary>
+		/// Layout controls.
+		/// </summary>
 		protected override void LayoutControls()
 		{
 			if (SwitchThumb == null || SwitchRoot == null)
@@ -62,6 +82,11 @@ namespace SunamoWpf.Controls.ToggleSwitch;
 			}
 		}
 
+		/// <summary>
+		/// On drag completed.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="eventArgs">The event args.</param>
 		protected override void OnDragCompleted(object sender, DragCompletedEventArgs eventArgs)
 		{
 			IsDragging = false;

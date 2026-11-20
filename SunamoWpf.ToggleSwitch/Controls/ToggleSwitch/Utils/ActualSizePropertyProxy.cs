@@ -1,11 +1,20 @@
 namespace SunamoWpf.Controls.ToggleSwitch.Utils;
 
+	/// <summary>
+	/// Represents the actual size property proxy type.
+	/// </summary>
 	public class ActualSizePropertyProxy : FrameworkElement, INotifyPropertyChanged
 	{
+		/// <summary>
+		/// The property changed.
+		/// </summary>
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		#region ElementProperty (Dependancy Property)
 
+		/// <summary>
+		/// The element property.
+		/// </summary>
 		public static readonly DependencyProperty ElementProperty =
 			DependencyProperty.Register("Element", typeof(FrameworkElement), typeof(ActualSizePropertyProxy),
 										new PropertyMetadata(null, OnElementPropertyChanged));
@@ -18,6 +27,9 @@ namespace SunamoWpf.Controls.ToggleSwitch.Utils;
         }
 		}
 
+		/// <summary>
+		/// The element.
+		/// </summary>
 		public FrameworkElement Element
 		{
 			get { return (FrameworkElement)GetValue(ElementProperty); }
@@ -26,11 +38,17 @@ namespace SunamoWpf.Controls.ToggleSwitch.Utils;
 
 		#endregion
 
+		/// <summary>
+		/// The actual height value.
+		/// </summary>
 		public double ActualHeightValue
 		{
 			get { return Element == null ? 0 : Element.ActualHeight; }
 		}
 
+		/// <summary>
+		/// The actual width value.
+		/// </summary>
 		public double ActualWidthValue
 		{
 			get { return Element == null ? 0 : Element.ActualWidth; }

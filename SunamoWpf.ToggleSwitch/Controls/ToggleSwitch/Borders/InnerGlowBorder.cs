@@ -1,5 +1,8 @@
 namespace SunamoWpf.Controls.ToggleSwitch.Borders;
 
+	/// <summary>
+	/// Represents the inner glow border type.
+	/// </summary>
 	public class InnerGlowBorder : ContentControl
 	{
 		/// <summary>

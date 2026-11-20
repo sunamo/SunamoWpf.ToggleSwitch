@@ -1,5 +1,8 @@
 namespace SunamoWpf.Controls.ToggleSwitch.Borders;
 
+	/// <summary>
+	/// Represents the clipping border type.
+	/// </summary>
 	public class ClippingBorder : ContentControl
 	{
 		/// <summary>

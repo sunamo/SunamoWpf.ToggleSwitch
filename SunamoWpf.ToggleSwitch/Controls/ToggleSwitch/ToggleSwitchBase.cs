@@ -73,10 +73,25 @@ public abstract class ToggleSwitchBase : Control
     private bool _suspendStateChanges;
     #endregion
     #region Properties
+    /// <summary>
+    /// Gets or sets the switch thumb.
+    /// </summary>
     protected Thumb SwitchThumb { get; set; }
+    /// <summary>
+    /// Gets or sets the switch checked.
+    /// </summary>
     protected Control SwitchChecked { get; set; }
+    /// <summary>
+    /// Gets or sets the switch unchecked.
+    /// </summary>
     protected Control SwitchUnchecked { get; set; }
+    /// <summary>
+    /// Gets or sets the switch root.
+    /// </summary>
     protected FrameworkElement SwitchRoot { get; set; }
+    /// <summary>
+    /// Gets or sets the switch track.
+    /// </summary>
     protected FrameworkElement SwitchTrack { get; set; }
     /// <summary>
     /// The current offset of the Thumb.
@@ -102,6 +117,9 @@ public abstract class ToggleSwitchBase : Control
     /// Gets a value that indicates whether a ToggleSwitch is currently pressed.
     /// </summary> 
     public bool IsPressed { get; protected set; }
+    /// <summary>
+    /// Gets the slide property path.
+    /// </summary>
     protected abstract PropertyPath SlidePropertyPath { get; }
     #endregion
     #region Dependency Properties
@@ -375,6 +393,9 @@ public abstract class ToggleSwitchBase : Control
         get { return (bool)GetValue(IsCheckedProperty); }
         set { SetValue(IsCheckedProperty, value); }
     }
+    /// <summary>
+    /// Gets the dragging state 1.
+    /// </summary>
     public static string DraggingState1 => DraggingState;
     private static void OnIsCheckedChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
     {
@@ -418,6 +439,10 @@ public abstract class ToggleSwitchBase : Control
     /// Event raised when the toggle switch is unchecked.
     ///</summary>
     public event RoutedEventHandler Unchecked;
+    /// <summary>
+    /// Invoke unchecked.
+    /// </summary>
+    /// <param name="eventArgs">The event args.</param>
     protected void InvokeUnchecked(RoutedEventArgs eventArgs)
     {
         RoutedEventHandler handler = Unchecked;
@@ -430,6 +455,10 @@ public abstract class ToggleSwitchBase : Control
     /// Event raised when the toggle switch is checked.
     ///</summary>
     public event RoutedEventHandler Checked;
+    /// <summary>
+    /// Invoke checked.
+    /// </summary>
+    /// <param name="eventArgs">The event args.</param>
     protected void InvokeChecked(RoutedEventArgs eventArgs)
     {
         RoutedEventHandler handler = Checked;
@@ -463,6 +492,9 @@ public abstract class ToggleSwitchBase : Control
     /// Recalculated the layout of the control.
     /// </summary>
     protected abstract void LayoutControls();
+    /// <summary>
+    /// On apply template.
+    /// </summary>
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
@@ -847,10 +879,20 @@ public abstract class ToggleSwitchBase : Control
                  (_mousePosition.Y >= 0.0) &&
                  (_mousePosition.Y <= ActualHeight);
     }
+    /// <summary>
+    /// Go to state.
+    /// </summary>
+    /// <param name="useTransitions">The use transitions.</param>
+    /// <param name="stateName">The state name.</param>
+    /// <returns>The go to state result.</returns>
     protected bool GoToState(bool useTransitions, string stateName)
     {
         return VisualStateManager.GoToState(this, stateName, useTransitions);
     }
+    /// <summary>
+    /// Change visual state.
+    /// </summary>
+    /// <param name="useTransitions">The use transitions.</param>
     protected virtual void ChangeVisualState(bool useTransitions)
     {
         if (!IsEnabled)
@@ -870,6 +912,10 @@ public abstract class ToggleSwitchBase : Control
             GoToState(useTransitions, UnfocusedState);
         }
     }
+    /// <summary>
+    /// Update visual state.
+    /// </summary>
+    /// <param name="useTransitions">The use transitions.</param>
     protected void UpdateVisualState(bool useTransitions = true)
     {
         if (!_suspendStateChanges)

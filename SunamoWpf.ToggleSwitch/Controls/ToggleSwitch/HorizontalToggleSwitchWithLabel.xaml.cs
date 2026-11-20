@@ -3,6 +3,9 @@ namespace SunamoWpf.Controls.ToggleSwitch;
 
 public partial class HorizontalToggleSwitchWithLabel : UserControl
 {
+    /// <summary>
+    /// Initializes a new instance of the horizontal toggle switch with label class.
+    /// </summary>
     public HorizontalToggleSwitchWithLabel()
     {
         try
@@ -17,6 +20,9 @@ public partial class HorizontalToggleSwitchWithLabel : UserControl
         }
     }
 
+    /// <summary>
+    /// The label.
+    /// </summary>
     public string Label
     {
         set => tb.Text = value;
